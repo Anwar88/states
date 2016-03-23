@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<span style='color:black'>
+	<form method = 'POST' action= '/city_search/'>
+		{% csrf_token %}
+
+		{{form.as_p}}
+
+		<input style='margin-left: 190px' type='submit' value= 'Search' />
+	</form>
+</br>
+</br>
+
+</span>
+
+</span>
+
+{% for city in city_list %}
+
+<span style='color:black'>{{ city.name }}</span>
+				{% if request.user.is_authenticated %}
+				<a href="/city_edit/{{ city.pk }}/"> | -- EDIT -- | </a>
+				<a href="/city_delete/{{ city.pk }}/"> | -- DELETE -- | </a>
+				{% endif %}
+</br>
+
+
+{% endfor %}
+
+{% endblock %}
+

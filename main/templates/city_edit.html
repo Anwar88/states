@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<span style='color:white'>
+<form method='POST' action='/city_edit/{{ city.pk }}/'>
+{% csrf_token %}
+
+	{{ form.as_p }} 
+
+<input style='margin-left: 180px; color:black;' type = 'submit' value='edit'>
+
+</form>
+
+{% endblock %}
